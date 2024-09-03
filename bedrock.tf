@@ -49,14 +49,3 @@ resource "aws_bedrockagent_agent" "bedrock" {
   idle_session_ttl_in_seconds = 500
   foundation_model            = data.aws_bedrock_foundation_model.inference.model_name
 }
-
-resource "aws_bedrockagent_data_source" "bedrock" {
-  knowledge_base_id = "bedrock-foo-111"
-  name              = "bedrock"
-  data_source_configuration {
-    type = "S3"
-    s3_configuration {
-      bucket_arn = aws_s3_bucket.source.arn
-    }
-  }
-}
