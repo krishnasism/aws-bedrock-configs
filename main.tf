@@ -8,10 +8,10 @@ terraform {
   backend "s3" {
     bucket = "terraformlocks"
     key    = "locks/bedrockconfigs"
-    region = "eu-central-1"
+    region = var.aws_region
   }
 }
 
 provider "aws" {
-  region = "eu-central-1"
+  region = var.aws_region
 }
