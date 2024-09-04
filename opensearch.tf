@@ -16,5 +16,6 @@ resource "aws_opensearchserverless_security_policy" "bedrock" {
 
 resource "aws_opensearchserverless_collection" "bedrock" {
   name       = "bedrock"
+  type       = "VECTORSEARCH"
   depends_on = [aws_opensearchserverless_security_policy.bedrock]
 }

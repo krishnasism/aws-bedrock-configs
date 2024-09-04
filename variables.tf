@@ -1,11 +1,11 @@
 variable "vector_index" {
   type    = string
-  default = "bedrock-knowledge-base-default-index"
+  default = "DEFAULT"
 }
 
 variable "vector_field" {
   type    = string
-  default = "bedrock-knowledge-base-default-vector"
+  default = "EMBEDDINGS"
 }
 
 # Change this

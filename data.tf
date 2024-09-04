@@ -25,8 +25,11 @@ data "aws_iam_policy_document" "bedrock_trust" {
       variable = "aws:SourceAccount"
     }
     condition {
-      test     = "ArnLike"
-      values   = ["arn:${data.aws_partition.current.partition}:bedrock:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:agent/*"]
+      test = "ArnLike"
+      values = [
+        "arn:${data.aws_partition.current.partition}:bedrock:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:agent/*",
+        "arn:${data.aws_partition.current.partition}:bedrock:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:knowledge-base/*",
+      ]
       variable = "AWS:SourceArn"
     }
   }
@@ -34,9 +37,9 @@ data "aws_iam_policy_document" "bedrock_trust" {
 
 data "aws_iam_policy_document" "bedrock_permissions" {
   statement {
-    actions = ["bedrock:InvokeModel"]
+    actions = ["bedrock:InvokeModel", "bedrock:CreateKnowledgeBase"]
     resources = [
-      "arn:${data.aws_partition.current.partition}:bedrock:${data.aws_region.current.name}::foundation-model/anthropic.claude-v2",
+      "arn:${data.aws_partition.current.partition}:bedrock:${data.aws_region.current.name}::foundation-model/*",
     ]
   }
 }
