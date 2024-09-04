@@ -7,3 +7,9 @@ variable "vector_field" {
   type    = string
   default = "bedrock-knowledge-base-default-vector"
 }
+
+# Change this
+variable "unique_number" {
+  type = string
+  default = "119992223300"
+}

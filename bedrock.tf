@@ -47,5 +47,5 @@ resource "aws_bedrockagent_agent" "bedrock" {
   agent_name                  = "bedrock"
   agent_resource_role_arn     = aws_iam_role.bedrock.arn
   idle_session_ttl_in_seconds = 500
-  foundation_model            = data.aws_bedrock_foundation_model.inference.model_name
+  foundation_model            = data.aws_bedrock_foundation_model.inference.model_id
 }

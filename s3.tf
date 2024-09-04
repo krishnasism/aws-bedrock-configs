@@ -1,3 +1,3 @@
 resource "aws_s3_bucket" "source" {
-  bucket = "bedrockdatasource"
+  bucket = local.s3_bucket_name
 }
