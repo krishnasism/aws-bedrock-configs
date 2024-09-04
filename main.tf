@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "terraformlocks"
+    bucket = "terraformlocksbucket"
     key    = "locks/bedrockconfigs"
-    region = var.aws_region
+    region = "us-east-1"
   }
 }
 
