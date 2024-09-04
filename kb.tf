@@ -41,6 +41,12 @@ resource "aws_bedrockagent_knowledge_base" "bedrock" {
       }
     }
   }
+
+  depends_on = [
+    aws_iam_role_policy.bedrock,
+    opensearch_index.bedrock,
+    time_sleep.sleep
+  ]
 }
 
 resource "aws_bedrockagent_agent_knowledge_base_association" "bedrock" {
