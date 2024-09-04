@@ -10,11 +10,11 @@ variable "vector_field" {
 
 # Change this
 variable "unique_number" {
-  type = string
+  type    = string
   default = "119992223301"
 }
 
 variable "aws_region" {
-  type = string
+  type    = string
   default = "us-east-1"
 }

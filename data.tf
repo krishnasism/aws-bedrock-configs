@@ -1,5 +1,5 @@
 data "aws_bedrock_foundation_model" "inference" {
-  model_id = "amazon.titan-text-express-v1"
+  model_id = "amazon.titan-text-premier-v1:0"
 }
 
 data "aws_bedrock_foundation_model" "embeddings" {

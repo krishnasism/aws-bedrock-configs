@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "source" {
   bucket = local.s3_bucket_name
 }
 
-resource "aws_s3_bucket_public_access_block" "example" {
+resource "aws_s3_bucket_public_access_block" "source" {
   bucket = aws_s3_bucket.source.id
 
   block_public_acls       = true
