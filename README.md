@@ -1,5 +1,5 @@
 # aws-bedrock-configs
-Terraform configuration for AWS Bedrock. Creates resources for AWS Bedrock Agent with Knowledgebase.
+Terraform configuration for AWS Bedrock. Creates resources for AWS Bedrock Agent with Knowledgebase (Opensearch + S3).
 
 ## Usage
 - Create an s3 bucket manually called `terraformlocksbucket`
