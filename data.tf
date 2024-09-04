@@ -37,9 +37,27 @@ data "aws_iam_policy_document" "bedrock_trust" {
 
 data "aws_iam_policy_document" "bedrock_permissions" {
   statement {
-    actions = ["bedrock:InvokeModel", "bedrock:CreateKnowledgeBase"]
+    actions = [
+      "bedrock:InvokeModel",
+      "bedrock:CreateKnowledgeBase",
+      "bedrock:ListFoundationModels",
+      "bedrock:ListCustomModels",
+      "bedrock:RetrieveAndGenerate",
+      "s3:GetObject",
+      "s3:ListBucket",
+      "aoss:APIAccessAll",
+      "secretsmanager:GetSecretValue",
+      "secretsmanager:PutSecretValue",
+      "kms:GenerateDataKey",
+      "kms:Decrypt",
+    ]
     resources = [
       "arn:${data.aws_partition.current.partition}:bedrock:${data.aws_region.current.name}::foundation-model/*",
+      "arn:${data.aws_partition.current.partition}:aoss:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:collection/*",
+      "arn:${data.aws_partition.current.partition}:secretsmanager:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:secret:*",
+      "arn:aws:s3:::${local.s3_bucket_name}/*",
+      "arn:${data.aws_partition.current.partition}:kms:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:key/*"
     ]
+    effect = "Allow"
   }
 }
