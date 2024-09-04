@@ -1,12 +1,15 @@
+
 resource "aws_bedrockagent_knowledge_base" "bedrock" {
   name     = "bedrock"
   role_arn = aws_iam_role.bedrock.arn
+
   knowledge_base_configuration {
     vector_knowledge_base_configuration {
       embedding_model_arn = data.aws_bedrock_foundation_model.embeddings.model_arn
     }
     type = "VECTOR"
   }
+
   storage_configuration {
     type = "OPENSEARCH_SERVERLESS"
     opensearch_serverless_configuration {
