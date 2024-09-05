@@ -11,7 +11,7 @@ resource "aws_bedrockagent_data_source" "bedrock" {
     chunking_configuration {
       chunking_strategy = "FIXED_SIZE"
       fixed_size_chunking_configuration {
-        max_tokens         = 512
+        max_tokens         = 1536
         overlap_percentage = 20
       }
     }
@@ -54,4 +54,5 @@ resource "aws_bedrockagent_agent_knowledge_base_association" "bedrock" {
   description          = "Knowledge Base"
   knowledge_base_id    = aws_bedrockagent_knowledge_base.bedrock.id
   knowledge_base_state = "ENABLED"
+
 }

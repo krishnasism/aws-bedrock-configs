@@ -1,11 +1,11 @@
 variable "vector_index" {
   type    = string
-  default = "DEFAULT"
+  default = "default-bedrock-agent-index"
 }
 
 variable "vector_field" {
   type    = string
-  default = "EMBEDDINGS"
+  default = "default-bedrock-agent-field-embeddings"
 }
 
 # Change this

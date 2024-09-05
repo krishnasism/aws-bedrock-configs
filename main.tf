@@ -5,8 +5,8 @@ terraform {
       version = "~> 5.0"
     }
     opensearch = {
-      source = "opensearch-project/opensearch"
-      version = "2.3.0"
+      source  = "opensearch-project/opensearch"
+      version = "= 2.2.0"
     }
   }
   backend "s3" {

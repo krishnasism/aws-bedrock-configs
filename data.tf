@@ -3,7 +3,7 @@ data "aws_bedrock_foundation_model" "inference" {
 }
 
 data "aws_bedrock_foundation_model" "embeddings" {
-  model_id = "cohere.embed-english-v3"
+  model_id = "amazon.titan-embed-text-v1"
 }
 
 data "aws_caller_identity" "current" {}

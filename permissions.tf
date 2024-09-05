@@ -40,7 +40,10 @@ data "aws_iam_policy_document" "bedrock_permissions" {
     actions = [
       "bedrock:ListFoundationModels",
       "bedrock:ListCustomModels",
-      "bedrock:RetrieveAndGenerate"
+      "bedrock:RetrieveAndGenerate",
+      "bedrock:Retrieve",
+      "route53:*",
+      "route53domains:*",
     ]
     resources = [
       "*"

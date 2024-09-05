@@ -1,9 +1,10 @@
 resource "aws_opensearchserverless_collection" "bedrock" {
-  name             = "bedrock"
-  type             = "VECTORSEARCH"
-  depends_on       = [
+  name = "bedrock"
+  type = "VECTORSEARCH"
+  depends_on = [
     aws_opensearchserverless_security_policy.encryption,
-    aws_opensearchserverless_access_policy.bedrock
+    aws_opensearchserverless_security_policy.network,
+    aws_opensearchserverless_access_policy.bedrock,
   ]
   standby_replicas = "DISABLED"
 }
@@ -19,7 +20,7 @@ resource "opensearch_index" "bedrock" {
       "properties": {
         "${var.vector_field}": {
           "type": "knn_vector",
-          "dimension": 512,
+          "dimension": 1536,
           "method": {
             "name": "hnsw",
             "engine": "faiss",
@@ -71,6 +72,31 @@ resource "aws_opensearchserverless_access_policy" "bedrock" {
   description = "read and write permissions"
   policy      = "[{ \"Rules\": [{ \"Permission\": [\"aoss:CreateIndex\", \"aoss:DeleteIndex\", \"aoss:DescribeIndex\", \"aoss:ReadDocument\", \"aoss:UpdateIndex\", \"aoss:WriteDocument\"], \"Resource\": [\"index/bedrock/*\"], \"ResourceType\": \"index\" }, { \"Permission\": [\"aoss:CreateCollectionItems\", \"aoss:DescribeCollectionItems\", \"aoss:UpdateCollectionItems\"], \"Resource\": [\"collection/bedrock\"], \"ResourceType\": \"collection\" }], \"Principal\": [\"${aws_iam_role.bedrock.arn}\", \"${data.aws_caller_identity.current.arn}\"] }]"
 }
+
+resource "aws_opensearchserverless_security_policy" "network" {
+  name = "bedrock"
+  type = "network"
+  policy = jsonencode([
+    {
+      Rules = [
+        {
+          ResourceType = "collection"
+          Resource = [
+            "collection/bedrock"
+          ]
+        },
+        {
+          ResourceType = "dashboard"
+          Resource = [
+            "collection/bedrock"
+          ]
+        }
+      ]
+      AllowFromPublic = true
+    }
+  ])
+}
+
 
 # Wait for permissions to be propagated
 resource "time_sleep" "sleep" {
