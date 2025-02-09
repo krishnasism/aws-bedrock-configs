@@ -6,6 +6,7 @@ Add credentials for terraform provider to be used. You can follow the [docs](htt
 
 ## Deploy
 - Create an s3 bucket manually called `terraformlocksbucket`
+    - Note: Feel free to use any backend.
 - Make sure that you have [access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#:~:text=To%20manage%20model%20access%2C%20sign,before%20requesting%20access%20to%20it.) to the required models in [models.tf](models.tf)
 - Do terraform stuff
     ```zsh
