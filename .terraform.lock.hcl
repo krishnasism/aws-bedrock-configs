@@ -6,6 +6,7 @@ provider "registry.terraform.io/hashicorp/aws" {
   constraints = "~> 5.0"
   hashes = [
     "h1:OG8xMZjGZL/OtEV9OwX0CTPcUzvSfcfiB0X9lcs2joY=",
+    "h1:Yu77qzBS1KxQNYG2xA8z2cA7+s56A40vEiW+dqxfl+I=",
     "zh:036f8557c8c9b58656e1ec08ed5702e44bd338fda17dc4b2add40b234102e29a",
     "zh:0ba0708ece98735540070899a916b7a90c5c887be31ffd693ee1359e40245978",
     "zh:12d82a82ae0e3bc580f2be961078e89d129e12df7dd82a6ec610a2b945bba1a4",
@@ -28,6 +29,7 @@ provider "registry.terraform.io/hashicorp/time" {
   version = "0.12.0"
   hashes = [
     "h1:Os2Ok7txtlUJHh6Hg7o+74Ql85SnRb/fGmah22yXpLw=",
+    "h1:S5xl3l6/rQmmujpKsHojuD1bPSo6F44JnlEWaRC03wU=",
     "zh:019a4c09af254ef80b72cf0d843dfe72d99483e227138cf5b514a1b9977ab4c3",
     "zh:0ae310ec740ebc6f275529507d60bb747d0bf39e72fc5a2fa90d74486006132c",
     "zh:13d6aec117f05237fbf8c7d91d6ebb19797b00aa87e7a812642d3ea4738a394e",
@@ -47,6 +49,7 @@ provider "registry.terraform.io/opensearch-project/opensearch" {
   version     = "2.2.0"
   constraints = "2.2.0"
   hashes = [
+    "h1:WUNpmyOj7j+FolWp9HWoMTiI8+FkjcTeQIdAJYfC0wk=",
     "h1:oJH4Uvmb0KPrKwTHmlMLUV06MmdAn0eC1koFTyK2TCw=",
     "zh:057262ad89649f9ff90afb7f8c220f75c8ebbe9eaf6aa5bf6d9cf50b3f388956",
     "zh:1e8fedfb1723444a3a76724dec700fec0927b5ada0e318a85c5b913793d5de4c",

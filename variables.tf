@@ -11,7 +11,7 @@ variable "vector_field" {
 # Change this
 variable "unique_number" {
   type    = string
-  default = "119992223301"
+  default = "1923913912"
 }
 
 variable "aws_region" {
