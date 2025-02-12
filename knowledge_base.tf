@@ -35,5 +35,4 @@ resource "aws_bedrockagent_agent_knowledge_base_association" "bedrock" {
   description          = "Knowledge Base"
   knowledge_base_id    = aws_bedrockagent_knowledge_base.bedrock.id
   knowledge_base_state = "ENABLED"
-
 }
